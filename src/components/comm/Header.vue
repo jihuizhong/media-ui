@@ -1,7 +1,7 @@
 <template>
-    <div>
+    <div style="float: left;width: 100%;">
         <el-menu
-            :default-active="activeIndex2"
+            :default-active="activePage"
             class="el-menu-demo"
             mode="horizontal"
             @select="handleSelect"
@@ -9,40 +9,40 @@
             text-color="#fff"
             active-text-color="#ffd04b"
         >
-            <el-menu-item index="1">处理中心</el-menu-item>
-            <el-submenu index="2">
-                <template slot="title">我的工作台</template>
-                <el-menu-item index="2-1">选项1</el-menu-item>
-                <el-menu-item index="2-2">选项2</el-menu-item>
-                <el-menu-item index="2-3">选项3</el-menu-item>
-                <el-submenu index="2-4">
-                    <template slot="title">选项4</template>
-                    <el-menu-item index="2-4-1">选项1</el-menu-item>
-                    <el-menu-item index="2-4-2">选项2</el-menu-item>
-                    <el-menu-item index="2-4-3">选项3</el-menu-item>
-                </el-submenu>
-            </el-submenu>
-            <el-menu-item index="3" disabled>消息中心</el-menu-item>
-            <el-menu-item index="4"
-                ><a href="https://www.ele.me" target="_blank"
-                    >订单管理</a
-                ></el-menu-item
-            >
+            <div class="self-menu-demo" @click="handleLogin">登录</div>
+            <el-menu-item index="1">首页</el-menu-item>
+            <el-menu-item index="2">贝尔户外小课堂</el-menu-item>
+            <el-menu-item index="3">贝尔大赛</el-menu-item>
+            <el-menu-item index="4">关于我们</el-menu-item>
         </el-menu>
+        <div>
+            <el-input
+                placeholder="请输入内容"
+                v-model="seartchKey">
+                <i slot="suffix" class="el-input__icon el-icon-search"></i>
+            </el-input>
+            <div>
+                登录
+            </div>
+        </div>
     </div>
 </template>
 
 <script>
 export default {
-    name: 'Header',
+    name: "Header",
     data () {
         return {
-            activeIndex2: '1'
+            activePage: "1",
+            seartchKey: ""
         };
     },
     methods: {
-        handleSelect (key, keyPath) {
+        handleSelect(key, keyPath) {
             console.log(key, keyPath);
+        },
+        handleLogin () {
+            console.log("to login");
         }
     }
 };
@@ -50,4 +50,19 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+.self-menu-demo {
+    height: 60px;
+    line-height: 60px;
+    margin: 0;
+    border-bottom: 2px solid transparent;
+    font-size: 14px;
+    padding: 0 20px;
+    cursor: pointer;
+    transition: border-color .3s,background-color .3s,color .3s;
+    box-sizing: border-box;
+    float: right;
+    color: rgb(255, 255, 255);
+    border-bottom-color: transparent;
+    background-color: rgb(84, 92, 100);
+}
 </style>

@@ -27,5 +27,11 @@ module.exports = {
     'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
     "indent": [2, 4],
     "semi": [2, "always"],//语句强制分号结尾
+    "space-before-function-paren": 0,  // 函数定义时括号前面要不要有空格
+    "key-spacing": [1, {  // 对象字面量中冒号的前后空格
+        "beforeColon": false,
+        "afterColon": true
+    }],
+    "quotes": [2, "double", {"avoidEscape": true}], //引号风格
   }
 }
